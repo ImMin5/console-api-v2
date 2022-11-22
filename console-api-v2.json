@@ -1,0 +1,2207 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "Console API for Cloudforet",
+    "version": "UNKNOWN"
+  },
+  "paths": {
+    "/dashboard/domain-dashboard/create": {
+      "post": {
+        "tags": [
+          "dashboard > domain-dashboard"
+        ],
+        "summary": "Create",
+        "description": "# Request Body\n## name\n- required\n\n## viewers\n- required\n\n## domain_id\n- required",
+        "operationId": "create_dashboard_domain_dashboard_create_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__domain_dashboard__DomainDashboardInfo__Create"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DomainDashboardInfo"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": ['ddddd']
+          }
+        ]
+      }
+    },
+    "/dashboard/domain-dashboard/update": {
+      "post": {
+        "tags": [
+          "dashboard > domain-dashboard"
+        ],
+        "summary": "Update",
+        "description": "# Request Body\n## domain_dashboard_id\n- required\n\n## domain_id\n- required",
+        "operationId": "update_dashboard_domain_dashboard_update_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__domain_dashboard__DomainDashboardInfo__Update"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DomainDashboardInfo"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/dashboard/domain-dashboard/delete": {
+      "post": {
+        "tags": [
+          "dashboard > domain-dashboard"
+        ],
+        "summary": "Delete",
+        "description": "# Request Body\n## domain_dashboard_id\n- required\n\n## domain_id\n- required",
+        "operationId": "delete_dashboard_domain_dashboard_delete_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__domain_dashboard__DomainDashboardInfo__Delete"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/dashboard/domain-dashboard/get": {
+      "post": {
+        "tags": [
+          "dashboard > domain-dashboard"
+        ],
+        "summary": "Get",
+        "description": "# Request Body\n## domain_dashboard_id\n- required\n\n## domain_id\n- required",
+        "operationId": "get_dashboard_domain_dashboard_get_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__domain_dashboard__DomainDashboardInfo__Get"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DomainDashboardInfo"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/dashboard/domain-dashboard/delete_version": {
+      "post": {
+        "tags": [
+          "dashboard > domain-dashboard"
+        ],
+        "summary": "Delete Version",
+        "operationId": "delete_version_dashboard_domain_dashboard_delete_version_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__domain_dashboard__DomainDashboardVersionInfo__DeleteVersion"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/dashboard/domain-dashboard/revert_version": {
+      "post": {
+        "tags": [
+          "dashboard > domain-dashboard"
+        ],
+        "summary": "Revert Version",
+        "description": "# Request Body\n## domain_dashboard_id\n- required\n\n## version\n- required\n\n## domain_id\n- required",
+        "operationId": "revert_version_dashboard_domain_dashboard_revert_version_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__domain_dashboard__DomainDashboardVersionInfo__RevertVersion"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DomainDashboardInfo"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/dashboard/domain-dashboard/get_version": {
+      "post": {
+        "tags": [
+          "dashboard > domain-dashboard"
+        ],
+        "summary": "Get Version",
+        "description": "# Request Body\n## domain_dashboard_id\n- required\n\n## version\n- required\n\n## domain_id\n- required",
+        "operationId": "get_version_dashboard_domain_dashboard_get_version_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetVersion"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DomainDashboardVersionInfo"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/dashboard/domain-dashboard/list_versions": {
+      "post": {
+        "tags": [
+          "dashboard > domain-dashboard"
+        ],
+        "summary": "List Versions",
+        "description": "# Request Body\n## domain_dashboard_id\n- required\n\n## domain_id\n- required",
+        "operationId": "list_versions_dashboard_domain_dashboard_list_versions_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__domain_dashboard__DomainDashboardVersionInfo__ListVersions"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DomainDashboardVersionInfos"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/dashboard/domain-dashboard/list": {
+      "post": {
+        "tags": [
+          "dashboard > domain-dashboard"
+        ],
+        "summary": "List",
+        "description": "# Request Body\n## domain_id\n- required",
+        "operationId": "list_dashboard_domain_dashboard_list_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__domain_dashboard__DomainDashboardInfo__List"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DomainDashboardInfos"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/dashboard/domain-dashboard/stat": {
+      "post": {
+        "tags": [
+          "dashboard > domain-dashboard"
+        ],
+        "summary": "Stat",
+        "description": "# Request Body\n## query\n- required\n\n## domain_id\n- required",
+        "operationId": "stat_dashboard_domain_dashboard_stat_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__domain_dashboard__Stat"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatInfo"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/dashboard/project-dashboard/create": {
+      "post": {
+        "tags": [
+          "dashboard > project-dashboard"
+        ],
+        "summary": "Create",
+        "operationId": "create_dashboard_project_dashboard_create_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__project_dashboard__ProjectDashboardInfo__Create"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/dashboard/project-dashboard/update": {
+      "post": {
+        "tags": [
+          "dashboard > project-dashboard"
+        ],
+        "summary": "Update",
+        "operationId": "update_dashboard_project_dashboard_update_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__project_dashboard__ProjectDashboardInfo__Update"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/dashboard/project-dashboard/delete": {
+      "post": {
+        "tags": [
+          "dashboard > project-dashboard"
+        ],
+        "summary": "Delete",
+        "operationId": "delete_dashboard_project_dashboard_delete_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__project_dashboard__ProjectDashboardInfo__Delete"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/dashboard/project-dashboard/get": {
+      "post": {
+        "tags": [
+          "dashboard > project-dashboard"
+        ],
+        "summary": "Get",
+        "operationId": "get_dashboard_project_dashboard_get_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__project_dashboard__ProjectDashboardInfo__Get"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/dashboard/project-dashboard/delete_version": {
+      "post": {
+        "tags": [
+          "dashboard > project-dashboard"
+        ],
+        "summary": "Delete Version",
+        "operationId": "delete_version_dashboard_project_dashboard_delete_version_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__project_dashboard__ProjectDashboardVersionInfo__DeleteVersion"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/dashboard/project-dashboard/revert_version": {
+      "post": {
+        "tags": [
+          "dashboard > project-dashboard"
+        ],
+        "summary": "Revert Version",
+        "operationId": "revert_version_dashboard_project_dashboard_revert_version_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__project_dashboard__ProjectDashboardVersionInfo__RevertVersion"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/dashboard/project-dashboard/get_version": {
+      "post": {
+        "tags": [
+          "dashboard > project-dashboard"
+        ],
+        "summary": "Get Version",
+        "operationId": "get_version_dashboard_project_dashboard_get_version_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__project_dashboard__ProjectDashboardVersionInfo__RevertVersion"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/dashboard/project-dashboard/list_versions": {
+      "post": {
+        "tags": [
+          "dashboard > project-dashboard"
+        ],
+        "summary": "List Versions",
+        "operationId": "list_versions_dashboard_project_dashboard_list_versions_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__project_dashboard__ProjectDashboardVersionInfo__ListVersions"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/dashboard/project-dashboard/list": {
+      "post": {
+        "tags": [
+          "dashboard > project-dashboard"
+        ],
+        "summary": "List",
+        "operationId": "list_dashboard_project_dashboard_list_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__project_dashboard__ProjectDashboardInfo__List"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/dashboard/project-dashboard/stat": {
+      "post": {
+        "tags": [
+          "dashboard > project-dashboard"
+        ],
+        "summary": "Stat",
+        "operationId": "stat_dashboard_project_dashboard_stat_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__project_dashboard__Stat"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/dashboard/custom-widget/create": {
+      "post": {
+        "tags": [
+          "dashboard > custom-widget"
+        ],
+        "summary": "Create",
+        "operationId": "create_dashboard_custom_widget_create_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__custom_widget__CustomWidgetInfo__Create"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/dashboard/custom-widget/update": {
+      "post": {
+        "tags": [
+          "dashboard > custom-widget"
+        ],
+        "summary": "Update",
+        "operationId": "update_dashboard_custom_widget_update_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__custom_widget__CustomWidgetInfo__Update"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/dashboard/custom-widget/delete": {
+      "post": {
+        "tags": [
+          "dashboard > custom-widget"
+        ],
+        "summary": "Delete",
+        "operationId": "delete_dashboard_custom_widget_delete_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__custom_widget__CustomWidgetInfo__Delete"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/dashboard/custom-widget/get": {
+      "post": {
+        "tags": [
+          "dashboard > custom-widget"
+        ],
+        "summary": "Get",
+        "operationId": "get_dashboard_custom_widget_get_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__custom_widget__CustomWidgetInfo__Get"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/dashboard/custom-widget/list": {
+      "post": {
+        "tags": [
+          "dashboard > custom-widget"
+        ],
+        "summary": "List",
+        "operationId": "list_dashboard_custom_widget_list_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__custom_widget__CustomWidgetInfo__List"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/dashboard/custom-widget/stat": {
+      "post": {
+        "tags": [
+          "dashboard > custom-widget"
+        ],
+        "summary": "Stat",
+        "operationId": "stat_dashboard_custom_widget_stat_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__custom_widget__Stat"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/check": {
+      "get": {
+        "summary": "Check",
+        "operationId": "check_check_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/reflection": {
+      "get": {
+        "summary": "Api Reflection",
+        "operationId": "api_reflection_api_reflection_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DomainDashboardInfo": {
+        "title": "DomainDashboardInfo",
+        "type": "object",
+        "properties": {
+          "domain_dashboard_id": {
+            "title": "Domain Dashboard Id",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "viewers": {
+            "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__domain_dashboard__Viewers"
+          },
+          "version": {
+            "title": "Version",
+            "type": "integer"
+          },
+          "layouts": {
+            "title": "Layouts",
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "dashboard_options": {
+            "title": "Dashboard Options",
+            "type": "object"
+          },
+          "settings": {
+            "title": "Settings",
+            "type": "object"
+          },
+          "dashboard_options_schema": {
+            "title": "Dashboard Options Schema",
+            "type": "object"
+          },
+          "labels": {
+            "title": "Labels",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tags": {
+            "title": "Tags",
+            "type": "object"
+          },
+          "user_id": {
+            "title": "User Id",
+            "type": "string"
+          },
+          "domain_id": {
+            "title": "Domain Id",
+            "type": "string"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated_at": {
+            "title": "Updated At",
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "DomainDashboardInfos": {
+        "title": "DomainDashboardInfos",
+        "type": "object",
+        "properties": {
+          "results": {
+            "title": "Results",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DomainDashboardInfo"
+            }
+          },
+          "total_count": {
+            "title": "Total Count",
+            "type": "integer"
+          }
+        }
+      },
+      "DomainDashboardVersionInfo": {
+        "title": "DomainDashboardVersionInfo",
+        "type": "object",
+        "properties": {
+          "domain_dashboard_id": {
+            "title": "Domain Dashboard Id",
+            "type": "string"
+          },
+          "version": {
+            "title": "Version",
+            "type": "integer"
+          },
+          "latest": {
+            "title": "Latest",
+            "type": "boolean"
+          },
+          "layouts": {
+            "title": "Layouts",
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "dashboard_options": {
+            "title": "Dashboard Options",
+            "type": "object"
+          },
+          "settings": {
+            "title": "Settings",
+            "type": "object"
+          },
+          "dashboard_options_schema": {
+            "title": "Dashboard Options Schema",
+            "type": "object"
+          },
+          "domain_id": {
+            "title": "Domain Id",
+            "type": "string"
+          },
+          "created_at": {
+            "title": "Created At",
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "DomainDashboardVersionInfos": {
+        "title": "DomainDashboardVersionInfos",
+        "type": "object",
+        "properties": {
+          "results": {
+            "title": "Results",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DomainDashboardVersionInfo"
+            }
+          },
+          "total_count": {
+            "title": "Total Count",
+            "type": "integer"
+          }
+        }
+      },
+      "GetVersion": {
+        "title": "GetVersion",
+        "required": [
+          "domain_dashboard_id",
+          "version",
+          "domain_id"
+        ],
+        "type": "object",
+        "properties": {
+          "domain_dashboard_id": {
+            "title": "Domain Dashboard Id",
+            "type": "string"
+          },
+          "version": {
+            "title": "Version",
+            "type": "integer"
+          },
+          "only": {
+            "title": "Only",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "domain_id": {
+            "title": "Domain Id",
+            "type": "string"
+          }
+        }
+      },
+      "HTTPValidationError": {
+        "title": "HTTPValidationError",
+        "type": "object",
+        "properties": {
+          "detail": {
+            "title": "Detail",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            }
+          }
+        }
+      },
+      "StatInfo": {
+        "title": "StatInfo",
+        "type": "object",
+        "properties": {
+          "results": {
+            "title": "Results",
+            "type": "array",
+            "items": {}
+          },
+          "total_count": {
+            "title": "Total Count",
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          }
+        }
+      },
+      "ValidationError": {
+        "title": "ValidationError",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "loc": {
+            "title": "Location",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            }
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        }
+      },
+      "cloudforet__console_api_v2__model__dashboard__custom_widget__CustomWidgetInfo__Create": {
+        "title": "Create",
+        "required": [
+          "widget_name",
+          "title",
+          "widget_options",
+          "domain_id"
+        ],
+        "type": "object",
+        "properties": {
+          "widget_name": {
+            "title": "Widget Name",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "widget_options": {
+            "title": "Widget Options",
+            "type": "object"
+          },
+          "inherit_options": {
+            "title": "Inherit Options",
+            "type": "object"
+          },
+          "labels": {
+            "title": "Labels",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tags": {
+            "title": "Tags",
+            "type": "object"
+          },
+          "domain_id": {
+            "title": "Domain Id",
+            "type": "string"
+          }
+        }
+      },
+      "cloudforet__console_api_v2__model__dashboard__custom_widget__CustomWidgetInfo__Delete": {
+        "title": "Delete",
+        "required": [
+          "custom_widget_id",
+          "domain_id"
+        ],
+        "type": "object",
+        "properties": {
+          "custom_widget_id": {
+            "title": "Custom Widget Id",
+            "type": "string"
+          },
+          "domain_id": {
+            "title": "Domain Id",
+            "type": "string"
+          }
+        }
+      },
+      "cloudforet__console_api_v2__model__dashboard__custom_widget__CustomWidgetInfo__Get": {
+        "title": "Get",
+        "required": [
+          "custom_widget_id",
+          "domain_id"
+        ],
+        "type": "object",
+        "properties": {
+          "custom_widget_id": {
+            "title": "Custom Widget Id",
+            "type": "string"
+          },
+          "only": {
+            "title": "Only",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "domain_id": {
+            "title": "Domain Id",
+            "type": "string"
+          }
+        }
+      },
+      "cloudforet__console_api_v2__model__dashboard__custom_widget__CustomWidgetInfo__List": {
+        "title": "List",
+        "required": [
+          "domain_id"
+        ],
+        "type": "object",
+        "properties": {
+          "custom_widget_id": {
+            "title": "Custom Widget Id",
+            "type": "string"
+          },
+          "widget_name": {
+            "title": "Widget Name",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "user_id": {
+            "title": "User Id",
+            "type": "string"
+          },
+          "query": {
+            "title": "Query",
+            "type": "object"
+          },
+          "domain_id": {
+            "title": "Domain Id",
+            "type": "string"
+          }
+        }
+      },
+      "cloudforet__console_api_v2__model__dashboard__custom_widget__CustomWidgetInfo__Update": {
+        "title": "Update",
+        "required": [
+          "custom_widget_id",
+          "domain_id"
+        ],
+        "type": "object",
+        "properties": {
+          "custom_widget_id": {
+            "title": "Custom Widget Id",
+            "type": "string"
+          },
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "widget_options": {
+            "title": "Widget Options",
+            "type": "object"
+          },
+          "inherit_options": {
+            "title": "Inherit Options",
+            "type": "object"
+          },
+          "labels": {
+            "title": "Labels",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tags": {
+            "title": "Tags",
+            "type": "object"
+          },
+          "domain_id": {
+            "title": "Domain Id",
+            "type": "string"
+          }
+        }
+      },
+      "cloudforet__console_api_v2__model__dashboard__custom_widget__Stat": {
+        "title": "Stat",
+        "required": [
+          "query",
+          "domain_id"
+        ],
+        "type": "object",
+        "properties": {
+          "query": {
+            "title": "Query",
+            "type": "object"
+          },
+          "domain_id": {
+            "title": "Domain Id",
+            "type": "string"
+          }
+        }
+      },
+      "cloudforet__console_api_v2__model__dashboard__domain_dashboard__DomainDashboardInfo__Create": {
+        "title": "Create",
+        "required": [
+          "name",
+          "viewers",
+          "domain_id"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "viewers": {
+            "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__domain_dashboard__Viewers"
+          },
+          "layouts": {
+            "title": "Layouts",
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "dashboard_options": {
+            "title": "Dashboard Options",
+            "type": "object"
+          },
+          "settings": {
+            "title": "Settings",
+            "type": "object"
+          },
+          "dashboard_options_schema": {
+            "title": "Dashboard Options Schema",
+            "type": "object"
+          },
+          "labels": {
+            "title": "Labels",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tags": {
+            "title": "Tags",
+            "type": "object"
+          },
+          "domain_id": {
+            "title": "Domain Id",
+            "type": "string"
+          }
+        }
+      },
+      "cloudforet__console_api_v2__model__dashboard__domain_dashboard__DomainDashboardInfo__Delete": {
+        "title": "Delete",
+        "required": [
+          "domain_dashboard_id",
+          "domain_id"
+        ],
+        "type": "object",
+        "properties": {
+          "domain_dashboard_id": {
+            "title": "Domain Dashboard Id",
+            "type": "string"
+          },
+          "domain_id": {
+            "title": "Domain Id",
+            "type": "string"
+          }
+        }
+      },
+      "cloudforet__console_api_v2__model__dashboard__domain_dashboard__DomainDashboardInfo__Get": {
+        "title": "Get",
+        "required": [
+          "domain_dashboard_id",
+          "domain_id"
+        ],
+        "type": "object",
+        "properties": {
+          "domain_dashboard_id": {
+            "title": "Domain Dashboard Id",
+            "type": "string"
+          },
+          "only": {
+            "title": "Only",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "domain_id": {
+            "title": "Domain Id",
+            "type": "string"
+          }
+        }
+      },
+      "cloudforet__console_api_v2__model__dashboard__domain_dashboard__DomainDashboardInfo__List": {
+        "title": "List",
+        "required": [
+          "domain_id"
+        ],
+        "type": "object",
+        "properties": {
+          "domain_dashboard_id": {
+            "title": "Domain Dashboard Id",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "viewers": {
+            "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__domain_dashboard__Viewers"
+          },
+          "user_id": {
+            "title": "User Id",
+            "type": "string"
+          },
+          "query": {
+            "title": "Query",
+            "type": "object"
+          },
+          "domain_id": {
+            "title": "Domain Id",
+            "type": "string"
+          }
+        }
+      },
+      "cloudforet__console_api_v2__model__dashboard__domain_dashboard__DomainDashboardInfo__Update": {
+        "title": "Update",
+        "required": [
+          "domain_dashboard_id",
+          "domain_id"
+        ],
+        "type": "object",
+        "properties": {
+          "domain_dashboard_id": {
+            "title": "Domain Dashboard Id",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "layouts": {
+            "title": "Layouts",
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "dashboard_options": {
+            "title": "Dashboard Options",
+            "type": "object"
+          },
+          "settings": {
+            "title": "Settings",
+            "type": "object"
+          },
+          "dashboard_options_schema": {
+            "title": "Dashboard Options Schema",
+            "type": "object"
+          },
+          "labels": {
+            "title": "Labels",
+            "type": "object"
+          },
+          "tags": {
+            "title": "Tags",
+            "type": "object"
+          },
+          "domain_id": {
+            "title": "Domain Id",
+            "type": "string"
+          }
+        }
+      },
+      "cloudforet__console_api_v2__model__dashboard__domain_dashboard__DomainDashboardVersionInfo__DeleteVersion": {
+        "title": "DeleteVersion",
+        "required": [
+          "domain_dashboard_id",
+          "version",
+          "domain_id"
+        ],
+        "type": "object",
+        "properties": {
+          "domain_dashboard_id": {
+            "title": "Domain Dashboard Id",
+            "type": "string"
+          },
+          "version": {
+            "title": "Version",
+            "type": "integer"
+          },
+          "domain_id": {
+            "title": "Domain Id",
+            "type": "string"
+          }
+        }
+      },
+      "cloudforet__console_api_v2__model__dashboard__domain_dashboard__DomainDashboardVersionInfo__ListVersions": {
+        "title": "ListVersions",
+        "required": [
+          "domain_dashboard_id",
+          "domain_id"
+        ],
+        "type": "object",
+        "properties": {
+          "domain_dashboard_id": {
+            "title": "Domain Dashboard Id",
+            "type": "string"
+          },
+          "version": {
+            "title": "Version",
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "query": {
+            "title": "Query",
+            "type": "object"
+          },
+          "domain_id": {
+            "title": "Domain Id",
+            "type": "string"
+          }
+        }
+      },
+      "cloudforet__console_api_v2__model__dashboard__domain_dashboard__DomainDashboardVersionInfo__RevertVersion": {
+        "title": "RevertVersion",
+        "required": [
+          "domain_dashboard_id",
+          "version",
+          "domain_id"
+        ],
+        "type": "object",
+        "properties": {
+          "domain_dashboard_id": {
+            "title": "Domain Dashboard Id",
+            "type": "string"
+          },
+          "version": {
+            "title": "Version",
+            "type": "integer"
+          },
+          "domain_id": {
+            "title": "Domain Id",
+            "type": "string"
+          }
+        }
+      },
+      "cloudforet__console_api_v2__model__dashboard__domain_dashboard__Stat": {
+        "title": "Stat",
+        "required": [
+          "query",
+          "domain_id"
+        ],
+        "type": "object",
+        "properties": {
+          "query": {
+            "title": "Query",
+            "type": "object"
+          },
+          "domain_id": {
+            "title": "Domain Id",
+            "type": "string"
+          }
+        }
+      },
+      "cloudforet__console_api_v2__model__dashboard__domain_dashboard__Viewers": {
+        "title": "Viewers",
+        "enum": [
+          "PUBLIC",
+          "PRIVATE"
+        ],
+        "type": "string",
+        "description": "An enumeration."
+      },
+      "cloudforet__console_api_v2__model__dashboard__project_dashboard__ProjectDashboardInfo__Create": {
+        "title": "Create",
+        "required": [
+          "project_id",
+          "name",
+          "viewers",
+          "domain_id"
+        ],
+        "type": "object",
+        "properties": {
+          "project_id": {
+            "title": "Project Id",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "viewers": {
+            "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__project_dashboard__Viewers"
+          },
+          "layout": {
+            "title": "Layout",
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "dashboard_options": {
+            "title": "Dashboard Options",
+            "type": "object"
+          },
+          "settings": {
+            "title": "Settings",
+            "type": "object"
+          },
+          "dashboard_options_schema": {
+            "title": "Dashboard Options Schema",
+            "type": "object"
+          },
+          "labels": {
+            "title": "Labels",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tags": {
+            "title": "Tags",
+            "type": "object"
+          },
+          "domain_id": {
+            "title": "Domain Id",
+            "type": "string"
+          }
+        }
+      },
+      "cloudforet__console_api_v2__model__dashboard__project_dashboard__ProjectDashboardInfo__Delete": {
+        "title": "Delete",
+        "required": [
+          "project_dashboard_id",
+          "domain_id"
+        ],
+        "type": "object",
+        "properties": {
+          "project_dashboard_id": {
+            "title": "Project Dashboard Id",
+            "type": "string"
+          },
+          "domain_id": {
+            "title": "Domain Id",
+            "type": "string"
+          }
+        }
+      },
+      "cloudforet__console_api_v2__model__dashboard__project_dashboard__ProjectDashboardInfo__Get": {
+        "title": "Get",
+        "required": [
+          "project_dashboard_id",
+          "domain_id"
+        ],
+        "type": "object",
+        "properties": {
+          "project_dashboard_id": {
+            "title": "Project Dashboard Id",
+            "type": "string"
+          },
+          "only": {
+            "title": "Only",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "domain_id": {
+            "title": "Domain Id",
+            "type": "string"
+          }
+        }
+      },
+      "cloudforet__console_api_v2__model__dashboard__project_dashboard__ProjectDashboardInfo__List": {
+        "title": "List",
+        "required": [
+          "domain_id"
+        ],
+        "type": "object",
+        "properties": {
+          "project_dashboard_id": {
+            "title": "Project Dashboard Id",
+            "type": "string"
+          },
+          "project_id": {
+            "title": "Project Id",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "viewers": {
+            "$ref": "#/components/schemas/cloudforet__console_api_v2__model__dashboard__project_dashboard__Viewers"
+          },
+          "user_id": {
+            "title": "User Id",
+            "type": "string"
+          },
+          "query": {
+            "title": "Query",
+            "type": "object"
+          },
+          "domain_id": {
+            "title": "Domain Id",
+            "type": "string"
+          }
+        }
+      },
+      "cloudforet__console_api_v2__model__dashboard__project_dashboard__ProjectDashboardInfo__Update": {
+        "title": "Update",
+        "required": [
+          "project_dashboard_id",
+          "domain_id"
+        ],
+        "type": "object",
+        "properties": {
+          "project_dashboard_id": {
+            "title": "Project Dashboard Id",
+            "type": "string"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "layout": {
+            "title": "Layout",
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "dashboard_options": {
+            "title": "Dashboard Options",
+            "type": "object"
+          },
+          "settings": {
+            "title": "Settings",
+            "type": "object"
+          },
+          "dashboard_options_schema": {
+            "title": "Dashboard Options Schema",
+            "type": "object"
+          },
+          "labels": {
+            "title": "Labels",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "tags": {
+            "title": "Tags",
+            "type": "object"
+          },
+          "domain_id": {
+            "title": "Domain Id",
+            "type": "string"
+          }
+        }
+      },
+      "cloudforet__console_api_v2__model__dashboard__project_dashboard__ProjectDashboardVersionInfo__DeleteVersion": {
+        "title": "DeleteVersion",
+        "required": [
+          "project_dashboard_id",
+          "version",
+          "domain_id"
+        ],
+        "type": "object",
+        "properties": {
+          "project_dashboard_id": {
+            "title": "Project Dashboard Id",
+            "type": "string"
+          },
+          "version": {
+            "title": "Version",
+            "type": "integer"
+          },
+          "domain_id": {
+            "title": "Domain Id",
+            "type": "string"
+          }
+        }
+      },
+      "cloudforet__console_api_v2__model__dashboard__project_dashboard__ProjectDashboardVersionInfo__ListVersions": {
+        "title": "ListVersions",
+        "required": [
+          "project_dashboard_id",
+          "domain_id"
+        ],
+        "type": "object",
+        "properties": {
+          "project_dashboard_id": {
+            "title": "Project Dashboard Id",
+            "type": "string"
+          },
+          "version": {
+            "title": "Version",
+            "type": "integer"
+          },
+          "query": {
+            "title": "Query",
+            "type": "object"
+          },
+          "domain_id": {
+            "title": "Domain Id",
+            "type": "string"
+          }
+        }
+      },
+      "cloudforet__console_api_v2__model__dashboard__project_dashboard__ProjectDashboardVersionInfo__RevertVersion": {
+        "title": "RevertVersion",
+        "required": [
+          "project_dashboard_id",
+          "version",
+          "domain_id"
+        ],
+        "type": "object",
+        "properties": {
+          "project_dashboard_id": {
+            "title": "Project Dashboard Id",
+            "type": "string"
+          },
+          "version": {
+            "title": "Version",
+            "type": "integer"
+          },
+          "domain_id": {
+            "title": "Domain Id",
+            "type": "string"
+          }
+        }
+      },
+      "cloudforet__console_api_v2__model__dashboard__project_dashboard__Stat": {
+        "title": "Stat",
+        "required": [
+          "query",
+          "domain_id"
+        ],
+        "type": "object",
+        "properties": {
+          "query": {
+            "title": "Query",
+            "type": "object"
+          },
+          "domain_id": {
+            "title": "Domain Id",
+            "type": "string"
+          }
+        }
+      },
+      "cloudforet__console_api_v2__model__dashboard__project_dashboard__Viewers": {
+        "title": "Viewers",
+        "enum": [
+          "PUBLIC",
+          "PRIVATE"
+        ],
+        "type": "string",
+        "description": "An enumeration."
+      }
+    },
+    "securitySchemes": {
+      "HTTPBearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+  
+}
