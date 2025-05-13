@@ -13,6 +13,26 @@ _LOGGER = logging.getLogger(__name__)
 
 router = APIRouter()
 
+@router.get('/reflection')
+@exception_handler
+async def api_reflection(request: Request):
+    response = _get_apis(request)
+    return response
+
+
+@cacheable(key='api-reflection', alias='local')
+def _get_apis(request: Request) -> dict:
+    apis = []
+    for route in request.app.routes:
+        if not hasattr(route, 'methods'):
+            apis.append({'path': route.path, 'name': route.name, 'method': []})
+            apis.extend(_add_mounted_apis(route.app, route.path))
+        elif '/openapi.json' in route.path and len(route.path.split('/')) > 2:
+            apis.extend(_add_apis_from_openapi_json())
+        else:
+            apis.append({'path': route.path, 'name': route.name, 'method': route.methods})
+    return {'apis': apis}
+
 
 def _add_mounted_apis(app, path=None):
     apis = []
@@ -46,22 +66,3 @@ def _add_apis_from_openapi_json():
     return apis
 
 
-@cacheable(key='api-reflection', alias='local')
-def _get_apis(request):
-    apis = []
-    for route in request.app.routes:
-        if not hasattr(route, 'methods'):
-            apis.append({'path': route.path, 'name': route.name, 'method': []})
-            apis.extend(_add_mounted_apis(route.app, route.path))
-        elif '/openapi.json' in route.path and len(route.path.split('/')) > 2:
-            apis.extend(_add_apis_from_openapi_json())
-        else:
-            apis.append({'path': route.path, 'name': route.name, 'method': route.methods})
-    return {'apis': apis}
-
-
-@router.get('/reflection')
-@exception_handler
-async def api_reflection(request: Request):
-    response = _get_apis(request)
-    return response

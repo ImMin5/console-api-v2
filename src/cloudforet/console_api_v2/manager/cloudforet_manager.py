@@ -52,7 +52,6 @@ class CloudforetManager(BaseManager):
     def convert_grpc_method_from_url(cls, url: str) -> str:
         try:
             parts = url.strip("/").split("/")
-            print(parts)
 
             if len(parts) != 3:
                 raise ValueError("Path must have at least two segments")

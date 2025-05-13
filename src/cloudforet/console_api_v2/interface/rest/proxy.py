@@ -2,23 +2,52 @@ import glob
 import logging
 import json
 import os
-
-from fastapi import Request, Depends
+from fastapi import Request, Depends, APIRouter
 from fastapi.concurrency import run_in_threadpool
-from fastapi_utils.cbv import cbv
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
-from fastapi_utils.inferring_router import InferringRouter
-from spaceone.core.cache import cacheable
-from spaceone.core.fastapi.api import BaseAPI, exception_handler
+
 from spaceone.core import config
+from spaceone.core.cache import cacheable
 from spaceone.core.error import ERROR_UNSUPPORTED_API
+from spaceone.core.fastapi.api import BaseAPI, exception_handler
+
 
 from cloudforet.console_api_v2.service.proxy_service import ProxyService
 
 _LOGGER = logging.getLogger(__name__)
 _AUTH_SCHEME = HTTPBearer(auto_error=False)
 
-router = InferringRouter(include_in_schema=False)
+router = APIRouter(include_in_schema=False)
+
+SERVICE = "console-api"
+RESOURCE = "Proxy"
+
+@router.post("/{service}/{resource}/{verb}")
+@exception_handler
+async def proxy_api(request: Request, service:str, resource:str, verb:str, token: HTTPAuthorizationCredentials = Depends(_AUTH_SCHEME)):
+    base_api = BaseAPI()
+    base_api.service = SERVICE
+
+    if not _request_path_validator(service, resource, verb, request.app):
+        raise ERROR_UNSUPPORTED_API(
+            reason=f"method: {request.method}, path: {request.url.path}"
+        )
+
+    service, resource, verb = _convert_service_resource_verb(
+        service, resource, verb
+    )
+
+    if token:
+        params, metadata = await base_api.parse_request(
+            request, token.credentials, resource, verb
+        )
+    else:
+        params, metadata = await base_api.parse_request(request, None, resource, verb)
+
+    with ProxyService(metadata) as proxy_service:
+        params["grpc_method"] = f"{service}.{resource}.{verb}"
+        response = await run_in_threadpool(proxy_service.dispatch_api, params)
+        return response
 
 
 def _add_mounted_app_paths(app, path=None):
@@ -83,33 +112,3 @@ def _convert_service_resource_verb(service, resource, verb):
 
     verb = verb.replace("-", "_").lower()
     return service, resource, verb
-
-
-@cbv(router)
-class Proxy(BaseAPI):
-    token: HTTPAuthorizationCredentials = Depends(_AUTH_SCHEME)
-    service = "console-api"
-
-    @router.post("/{service}/{resource}/{verb}")
-    @exception_handler
-    async def proxy_api(self, request: Request, service, resource, verb):
-        if not _request_path_validator(service, resource, verb, request.app):
-            raise ERROR_UNSUPPORTED_API(
-                reason=f"method: {request.method}, path: {request.url.path}"
-            )
-
-        service, resource, verb = _convert_service_resource_verb(
-            service, resource, verb
-        )
-
-        if self.token:
-            params, metadata = await self.parse_request(
-                request, self.token.credentials, resource, verb
-            )
-        else:
-            params, metadata = await self.parse_request(request, None, resource, verb)
-
-        with self.locator.get_service(ProxyService, metadata) as proxy_service:
-            params["grpc_method"] = f"{service}.{resource}.{verb}"
-            response = await run_in_threadpool(proxy_service.dispatch_api, params)
-            return response
