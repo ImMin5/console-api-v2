@@ -182,7 +182,7 @@ class ExcelService(BaseService):
                 if row_value is None:
                     value = ""
                 elif field_type == "datetime":
-                    dt = datetime.fromisoformat(row_value)
+                    dt = datetime.fromisoformat(row_value.replace('Z', '+00:00'))
                     tz = pytz.timezone(timezone)
                     value = dt.astimezone(tz).strftime("%Y-%m-%d %H:%M:%S")
 
@@ -393,16 +393,6 @@ class ExcelService(BaseService):
 
         now = datetime.now(pytz.timezone(timezone)).strftime("%Y%m%d")
         return f"{prefix}_export_{now}.xlsx"
-
-    @staticmethod
-    def _get_row_value(row_value: Union[str, list, dict], key: str) -> Any:
-        if isinstance(row_value, dict):
-            print("row_value is dict")
-            row_value = utils.get_dict_value(data=row_value, dotted_key=key)
-        elif isinstance(row_value, list):
-            row_value = utils.get_list_values(row_value, key)
-
-        return row_value
 
     def get_value_by_path(
         self, data: Any, path: Optional[str], depth: Optional[int] = None
