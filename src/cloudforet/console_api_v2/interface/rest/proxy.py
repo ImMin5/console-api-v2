@@ -11,7 +11,6 @@ from spaceone.core.cache import cacheable
 from spaceone.core.error import ERROR_UNSUPPORTED_API
 from spaceone.core.fastapi.api import BaseAPI, exception_handler
 
-
 from cloudforet.console_api_v2.service.proxy_service import ProxyService
 
 _LOGGER = logging.getLogger(__name__)

@@ -28,6 +28,13 @@ ROUTER = [
         },
     },
     {
+        "router_path": "cloudforet.console_api_v2.interface.rest.extension.page_schema:router",
+        "router_options": {
+            "prefix": "/console-api/extension/page-schema",
+            "tags": ["console-api > extension > page-schema"],
+        },
+    },
+    {
         "router_path": "cloudforet.console_api_v2.interface.rest.swagger:router",
     },
     {

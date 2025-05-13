@@ -11,7 +11,6 @@ from openpyxl.styles import Border, Side, PatternFill, Font, Alignment
 from starlette.responses import StreamingResponse
 
 from spaceone.core import cache
-from spaceone.core import utils
 from spaceone.core.service import *
 from spaceone.core.error import ERROR_CACHE_CONFIGURATION
 

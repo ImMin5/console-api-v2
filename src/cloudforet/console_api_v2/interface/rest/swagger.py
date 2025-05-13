@@ -45,7 +45,7 @@ def _get_openapi_json_data(service):
 
 
 @cacheable(key='swagger-ui-html:{service}', alias='local')
-def _get_swagger_ui_html(request: Request, service):
+def _get_swagger_ui_html(request: Request, service:str):
     return get_swagger_ui_html(
         openapi_url=f'/{service}/openapi.json',
         title=f'{service.title().replace("-", " ")} API' + ' - Swagger UI',

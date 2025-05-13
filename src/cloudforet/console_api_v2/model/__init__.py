@@ -11,7 +11,7 @@ class BaseAPIModel(BaseModel):
                 "required": True,
                 "content": {
                     "application/json": {
-                        "schema": cls.schema(),
+                        "schema": cls.model_json_schema(),
                         "examples": {
                             "Schema": {}
                         },
